@@ -16,16 +16,32 @@ ResultSet rs = null;
 try{
     con = connectdb.connect();
     sql = con.createStatement();
-    rs = sql.executeQuery("select name from student");
-    
+    rs = sql.executeQuery("select id,name,gender,xueyuan from student");
+    String[] a = new String[10];
+    int i = 0;
    	out.print("<table border=2>");
     out.print("<tr>");
-    out.print("<th width=100>"+"name"); 
+    out.print("<th width=20>"+"编号"); 
+    out.print("<th width=60>"+"姓名"); 
+    out.print("<th width=50>"+"性别"); 
+    out.print("<th width=100>"+"学院");
+    out.print("<th width=200>"+"操作");
     out.print("</tr>"); 
     while(rs.next()){
         out.print("<tr>");
-        out.print("<td>"+rs.getString(1)+"</td>");
-       
+        a[i] = rs.getString(1);
+        out.print("<td>"+a[i]+"</td>");
+        out.print("<td>"+rs.getString(2)+"</td>");
+        out.print("<td>"+rs.getString(3)+"</td>");
+        out.print("<td>"+rs.getString(4)+"</td>");
+       %>
+       <td>
+       	<a href="stuman.jsp?ID=<%=a[i]%>">修改信息</a>
+       </td>
+       <% 
+       i++;
+       // out.print("<td>"+"<a href='stuman.jsp' >修改信息</a>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        //			+"<a href='studel.jsp' >删除信息</a>"+"</td>");
         out.print("</tr>");
     }
     out.print("</table>");
