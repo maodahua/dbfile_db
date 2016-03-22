@@ -16,6 +16,7 @@
 		
 		
 		//get the data from mannage page
+		String ID = request.getParameter("ID");
 		String nnum = request.getParameter("id");
 		if(nnum != null)
 			nnum = new String(nnum.getBytes("ISO-8859-1"),"utf-8");
@@ -28,18 +29,24 @@
 		String nxueyuan = request.getParameter("xueyuan");
 		if(nxueyuan != null)
 		nxueyuan = new String(nxueyuan.getBytes("ISO-8859-1"),"utf-8");
-		//out.print(nxueyuan);
 		int choice = Integer.valueOf(request.getParameter("choice"));
 		String num = request.getParameter("num");
+		//out.print(ID+""+choice);		
+		
 		try{
 			if(choice == 1)
 			{
 				sql.executeUpdate("update student set id='"+nnum+"', name='"+nname+"',gender='"+ngender+"',xueyuan='"+nxueyuan+"' where id='"+num+"'");
-				response.sendRedirect("success.html");
+				
 			}
+			if(choice == 2)
+			{
+				sql.executeUpdate("DELETE from student where id='"+ID+"';");
+			}
+			response.sendRedirect("success.html");
 		}
 		catch(Exception e){
-				response.sendRedirect("fail.html");
+			response.sendRedirect("fail.html");
 		}
 		
 		

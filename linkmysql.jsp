@@ -37,6 +37,8 @@ try{
        %>
        <td>
        	<a href="stuman.jsp?ID=<%=a[i]%>">修改信息</a>
+       	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       	<a href="dbman.jsp?ID=<%=a[i] %>&choice=2">删除信息</a>
        </td>
        <% 
        i++;
