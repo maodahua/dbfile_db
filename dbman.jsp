@@ -43,6 +43,11 @@
 			{
 				sql.executeUpdate("DELETE from student where id='"+ID+"';");
 			}
+			if(choice == 3)
+			{
+				//out.print("INSERT into student (id,name,gender,xueyuan) VALUES('"+nnum+"','"+nname+"','"+ngender+"','"+nxueyuan+"')");
+				sql.executeUpdate("INSERT into student (id,name,gender,xueyuan) VALUES('"+nnum+"','"+nname+"','"+ngender+"','"+nxueyuan+"')");
+			}
 			response.sendRedirect("success.html");
 		}
 		catch(Exception e){

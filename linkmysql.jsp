@@ -42,11 +42,12 @@ try{
        </td>
        <% 
        i++;
-       // out.print("<td>"+"<a href='stuman.jsp' >修改信息</a>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-        //			+"<a href='studel.jsp' >删除信息</a>"+"</td>");
-        out.print("</tr>");
+       out.print("</tr>");
     }
     out.print("</table>");
+    %>
+    <a href="stuadd.jsp">添加学生信息</a>
+    <% 
     con.close(); 
 }
 catch(SQLException e1){
