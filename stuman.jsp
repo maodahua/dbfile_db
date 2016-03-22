@@ -20,7 +20,7 @@
 		%>
 	
 	  <p>输入新信息以作修改
-		<form action="" method="post" name=form>
+		<form action="dbman.jsp" method="post" name=form>
 			<p>编号
 				<input type="text" name=id value=<%=rs.getString(1) %>>
 			<p>姓名
@@ -29,36 +29,10 @@
 				<input type="text" name=gender value=<%=rs.getString(3) %>>
 			<p>学院
 				<input type="text" name=xueyuan value=<%=rs.getString(4) %>>
+				<input type="hidden" name=choice  value=1>
+				<input type="hidden" name=num  value=<%=num %>>
 				<br>
 			<input type='submit' value="确认修改" name="submit">
 		</form> 
-	
-	<%
-		String nnum = request.getParameter("id");
-		if(nnum != null)
-			nnum = new String(nnum.getBytes("ISO-8859-1"),"utf-8");
-		String nname = request.getParameter("name");
-		if(nname != null)
-			nname = new String(nname.getBytes("ISO-8859-1"),"utf-8");
-		String ngender = request.getParameter("gender");
-		if(ngender != null)
-			ngender = new String(ngender.getBytes("ISO-8859-1"),"utf-8");
-		String nxueyuan = request.getParameter("xueyuan");
-		if(nxueyuan != null)
-		nxueyuan = new String(nxueyuan.getBytes("ISO-8859-1"),"utf-8");
-		out.print(nxueyuan);
-		try{
-			sql.executeUpdate("update student set id='"+nnum+"', name='"+nname+"',gender='"+ngender+"',xueyuan='"+nxueyuan+"' where id='"+num+"'");
-			
-		%>
-		<% }
-		catch(Exception e)
-		{
-			out.print(e);
-		}
-		
-	%>
-			
-	
 </body>
 </html>
