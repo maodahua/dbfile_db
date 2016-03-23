@@ -25,7 +25,7 @@ try{
     out.print("<th width=60>"+"姓名"); 
     out.print("<th width=50>"+"性别"); 
     out.print("<th width=100>"+"学院");
-    out.print("<th width=200>"+"操作");
+    out.print("<th width=300>"+"操作");
     out.print("</tr>"); 
     while(rs.next()){
         out.print("<tr>");
@@ -39,6 +39,8 @@ try{
        	<a href="stuman.jsp?ID=<%=a[i]%>">修改信息</a>
        	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        	<a href="dbman.jsp?ID=<%=a[i] %>&choice=2">删除信息</a>
+       	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       	<a href="detail.jsp?ID=<%=a[i] %>">详细信息</a>
        </td>
        <% 
        i++;
