@@ -55,19 +55,19 @@
 		if (choice == 1 || choice == 3) {
 			//get  data 
 			nnum = su.getRequest().getParameter("id");//request.getParameter("id");
-			if (nnum != null)
-				nnum = new String(nnum.getBytes("ISO-8859-1"), "utf-8");
+			//if (nnum != null)
+				//nnum = new String(nnum.getBytes("ISO-8859-1"), "utf-8");
 			nname = su.getRequest().getParameter("name");//request.getParameter("name");
-			if (nname != null)
-				nname = new String(nname.getBytes("ISO-8859-1"), "utf-8");
+			//if (nname != null)
+				//nname = new String(nname.getBytes("ISO-8859-1"), "utf-8");
 			ngender = su.getRequest().getParameter("gender");//request.getParameter("gender");
-			if (ngender != null)
-				ngender = new String(ngender.getBytes("ISO-8859-1"),
-						"utf-8");
+			//if (ngender != null)
+				//ngender = new String(ngender.getBytes("ISO-8859-1"),
+					//	"utf-8");
 			nxueyuan = su.getRequest().getParameter("xueyuan");//request.getParameter("xueyuan");
-			if (nxueyuan != null)
-				nxueyuan = new String(nxueyuan.getBytes("ISO-8859-1"),
-						"utf-8");
+			//if (nxueyuan != null)
+			//	nxueyuan = new String(nxueyuan.getBytes("ISO-8859-1"),
+						//"utf-8");
 			//int choice = Integer.valueOf(request.getParameter("choice"));
 			num = su.getRequest().getParameter("num");//request.getParameter("num");
 			//out.print(ID+""+choice);		
