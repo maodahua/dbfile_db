@@ -8,7 +8,7 @@
 	Statement sql = null;
 	ResultSet rs = null; 
 	String num = request.getParameter("ID");
-	String lo = "http://localhost:8080/dbfile_db";
+	//String lo = "http://localhost:8080/dbfile_db";
 	
 	con = connectdb.connect();
 	sql = con.createStatement();
@@ -25,6 +25,6 @@
 	<p>学院
 		<input type="text" name=xueyuan value=<%=rs.getString(4) %>>
 		<br>
-	<img  src=<%=lo+rs.getString(5) %>>
+	<img  src=<%=rs.getString(5) %>>
 </body>
 </html>
