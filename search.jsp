@@ -11,26 +11,22 @@
 		Connection con = null;
 		Statement sql = null;
 		ResultSet rs = null;
-		int lpage = 0;
-		int count;
-		
-		String pagetest = request.getParameter("page");
-		if(pagetest != null)
-			lpage = Integer.valueOf(request.getParameter("page"));
-		if(lpage < 0)
-			lpage = 0;	
-		
+		String ss = null;
+		int snum = 0;
+
+		snum = Integer.valueOf(request.getParameter("num"));
+		ss = request.getParameter("search");
+		if (ss != null)
+			ss = new String(ss.getBytes("ISO-8859-1"), "utf-8");
+
 		try {
 			con = connectdb.connect();
 			sql = con.createStatement();
-			rs = sql.executeQuery("select COUNT(*) from student");
-			rs.next();
-			int snum = 0;
-			snum = rs.getInt(1);
-			if(lpage >= rs.getInt(1))
-				lpage -= 5; 
-			rs = sql.executeQuery("select id,name,gender,xueyuan from student limit "+lpage+",5");
-			String[] a = new String[5];
+			rs = sql.executeQuery("select * from student where id LIKE '%"
+					+ ss + "%' or name like '%" + ss
+					+ "%' or gender like '%" + ss + "%' or xueyuan like '%"
+					+ ss + "%'");
+			String[] a = new String[snum];
 			int i = 0;
 			out.print("<table border=2>");
 			out.print("<tr>");
@@ -58,22 +54,12 @@
 				out.print("</tr>");
 			}
 			out.print("</table>");
-	%>
-	<a href="stuadd.jsp">添加学生信息</a>
-	<br>
-	<a href="linkmysql.jsp?page=<%=lpage-5 %>">上一页</a>
-	<a href="linkmysql.jsp?page=<%=lpage+5 %>">下一页</a>
-	<br>
-	<form action="search.jsp?num=<%=snum %>" method="post" name=from >
-		<p>搜索：
-			<input type="text" name=search>
-			<input type="submit" value=搜索 >
-	</form>
-	<%
-		con.close();
+
+			con.close();
 		} catch (SQLException e1) {
 			out.print(e1);
 		}
 	%>
+	<a href="linkmysql.jsp">返回首页</a>
 </body>
 </html>

@@ -25,6 +25,7 @@
 	<p>学院
 		<input type="text" name=xueyuan value=<%=rs.getString(4) %>>
 		<br>
-	<img  src=<%=rs.getString(5) %>>
+		<img  src=<%=rs.getString(5) %>>
+	
 </body>
 </html>
